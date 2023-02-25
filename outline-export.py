@@ -1,8 +1,10 @@
-import requests
-import json
 import datetime
-import time
+import json
 import os
+import time
+
+import requests
+
 ########################################################################
 # 说明
 # docker镜像使用方法
@@ -13,7 +15,7 @@ import os
 url0 = os.environ.get('URL')
 token = os.environ.get('TOKEN')
 
-headers = {"Authorization": "Bearer "+token}
+headers = {"Authorization": "Bearer " + token}
 url = ''.join([url0, '/api/collections.export_all'])
 
 # 请求备份
@@ -40,14 +42,14 @@ downloadUrl = ''.join([url0, '/api/fileOperations.redirect?id=', id])
 time.sleep(30)
 d = requests.get(downloadUrl, headers=headers)
 filename = ''.join(
-    ['/data/', datetime.datetime.now().strftime('%Y%m%d%H%M'),'-',response_data['data']['fileOperation']['name']])
+    ['/data/', datetime.datetime.now().strftime('%Y%m%d%H%M'), '-', response_data['data']['fileOperation']['name']])
 # 下载储存文件
 print(filename)
 open(filename, 'wb').write(d.content)
 
 # 删除旧的备份，保留5个版本
 ## 列出目录下的文件
-files= os.listdir('/data')
+files = os.listdir('/data')
 # 删除所有文件，但保留最近的5个版本
 for file in files[:-5]:
-     os.remove(file)
+    os.remove(file)
