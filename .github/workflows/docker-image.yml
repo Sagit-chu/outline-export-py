@@ -35,5 +35,5 @@ jobs:
         platforms: linux/amd64
         push: true
         tags: |
-          ${{ secrets.DOCKERHUB_USERNAME }}/outline-export:latest
-          ${{ secrets.DOCKERHUB_USERNAME }}/outline-export:${{ env.TAG }}
+          ${{ secrets.DOCKERHUB_USERNAME }}/outline-export-py:latest
+          ${{ secrets.DOCKERHUB_USERNAME }}/outline-export-py:${{ env.TAG }}
