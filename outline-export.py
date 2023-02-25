@@ -40,7 +40,7 @@ downloadUrl = ''.join([url0, '/api/fileOperations.redirect?id=', id])
 time.sleep(30)
 d = requests.get(downloadUrl, headers=headers)
 filename = ''.join(
-    ['/data', datetime.datetime.now().strftime('%Y%m%d%H%M'), response_data['data']['fileOperation']['name']])
+    ['/data/', datetime.datetime.now().strftime('%Y%m%d%H%M'), response_data['data']['fileOperation']['name']])
 # 下载储存文件
 print(filename)
 open(filename, 'wb').write(d.content)
