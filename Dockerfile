@@ -3,8 +3,8 @@ RUN apt-get update && apt-get install -y \
     libffi-dev \
     libssl-dev
 VOLUME [ "/data" ]
-COPY outline-export.py /app
 WORKDIR /app
+COPY outline-export.py /app/
 RUN pip install pipreqs \
     pipreqs .
 RUN pip install -r requirements.txt
