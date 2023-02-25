@@ -5,7 +5,5 @@ RUN apt-get update && apt-get install -y \
 VOLUME [ "/data" ]
 WORKDIR /app
 COPY outline-export.py /app/
-RUN pip install pipreqs \
-    pipreqs .
 RUN pip install -r requirements.txt
 ENTRYPOINT [ "python", "outline-export.py" ]
