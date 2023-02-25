@@ -5,12 +5,13 @@ import time
 
 import requests
 
-########################################################################
-# 说明
-# docker镜像使用方法
-# 添加环境变量，URL, TOKEN
-# 映射路径 /data 为备份储存的路径
-########################################################################
+"""
+说明
+docker镜像使用方法
+添加环境变量，URL, TOKEN
+映射路径 /data 为备份储存的路径
+"""
+
 # 获取环境变量-获取URL地址和TOKEN，URL示例https://example.com:port
 url0 = os.environ.get('URL')
 token = os.environ.get('TOKEN')
