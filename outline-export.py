@@ -51,6 +51,9 @@ open(filename, 'wb').write(d.content)
 # 删除旧的备份，保留5个版本
 ## 列出目录下的文件
 files = os.listdir('/data')
-# 删除所有文件，但保留最近的5个版本
+## 删除所有文件，但保留最近的5个版本
 for file in files[:-5]:
-    os.remove(file)
+    for i in file:
+        _ = ''.join(['/data/', i])
+        print('将删除', i)
+        os.remove(_)
